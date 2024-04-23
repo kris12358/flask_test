@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask PostgreSQL Example</title>
+</head>
+<body>
+    <h1>Select Dates:</h1>
+    <form method="post">
+        <label for="start_date">Start Date:</label>
+        <input type="date" name="start_date" required><br><br>
+
+        <label for="end_date">End Date:</label>
+        <input type="date" name="end_date" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    {% if data %}
+    <h1>Data:</h1>
+    <ul>
+        {% for item in data %}
+        <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if plot_data %}
+    <h1>Plot:</h1>
+    <img src="data:image/png;base64,{{ plot_data }}" alt="Plot">
+    {% endif %}
+</body>
+</html>
